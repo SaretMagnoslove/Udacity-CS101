@@ -58,7 +58,7 @@ incorrect5 = [ [1, 1.5],
 def check_sudoku(sudoku):    
     for row in sudoku:
         if  not all(isinstance(x, int) for x in row): return False
-        if not all(i <= len(row) and i > 0 for i in row): return False
+        if not all(len(row) >= i > 0  for i in row): return False
         if len(row) != len(set(row)): return False
     invSudoku = [[x[i] for x in sudoku] for i in range(len(sudoku[0]))]
     for row in invSudoku:
